@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LogIn_Page extends org.utilities.BaseClass {
+	
+
 	public LogIn_Page() {
 		PageFactory.initElements(driver, this);
 
@@ -20,6 +22,9 @@ public class LogIn_Page extends org.utilities.BaseClass {
 
 	@FindBy(name = "password")
 	private WebElement password;
+	
+	@FindBy(xpath="//a[.='Sign Up']")
+	private WebElement Clk_SignUp;
 
 	public WebElement getPassword() {
 		return password;
@@ -29,6 +34,9 @@ public class LogIn_Page extends org.utilities.BaseClass {
 
 	public WebElement getLogInBtn() {
 		return logInBtn;
+	}
+	public WebElement getClk_SignUp() {
+		return Clk_SignUp;
 	}
 	
 

@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 glue="org.stepDefinitions",
 dryRun=false,
 plugin= {"pretty","html:target/mutualDrugTestReports.html"},
-monochrome=true)
+monochrome=true, tags="@tag3")
 public class TestRunner {
 
 }

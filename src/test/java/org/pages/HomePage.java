@@ -25,6 +25,20 @@ public class HomePage extends BaseClass {
 	
 	@FindBy(xpath="//a[@routerlink='members/roles']//span[1]")
 	private WebElement roles;
+	
+	@FindBy(xpath="//a[@class='user-profile-icon']")
+	private WebElement userProfileIcon;
+	
+	@FindBy(xpath="//a[.=' Account']")
+	private WebElement Account;
+
+	public WebElement getUserProfileIcon() {
+		return userProfileIcon;
+	}
+
+	public WebElement getAccount() {
+		return Account;
+	}
 
 	public WebElement getMemberApplication() {
 		return memberApplication;
