@@ -1,6 +1,7 @@
 package org.stepDefinitions;
 
 import java.io.IOException;
+import java.util.Properties;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,7 +18,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class StepDefinitions extends BaseClass  {
+public class StepDefinitions extends Constants  {
 	LogIn_Page logIn_Page;
 	HomePage homePage;
 	AccountsPage accountsPage;
@@ -26,8 +27,9 @@ public class StepDefinitions extends BaseClass  {
 	@When("user enters valid username and password")
 	public void user_enters_valid_username_and_password() {
 		 logIn_Page = new LogIn_Page();
-		logIn_Page.getUserName().sendKeys("bramamurthy@mutualdrug.com");
-		logIn_Page.getPassword().sendKeys("Demo@1234");
+		 loadProperties();
+		logIn_Page.getUserName().sendKeys(Constants.username);
+		logIn_Page.getPassword().sendKeys(Constants.password);
 		logIn_Page.getLogInBtn().click();
 	}
 	@Test

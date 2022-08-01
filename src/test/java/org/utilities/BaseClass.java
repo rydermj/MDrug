@@ -5,11 +5,14 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -46,6 +49,29 @@ public class BaseClass {
 	public static Robot r;
 	public static ExtentReports extentReport;
 	public static ExtentHtmlReporter htmlReporter;
+	public static Properties property;
+	
+	public void loadProperties() {
+		/*FileReader reader=null;
+		try {
+			reader=new FileReader("Config.properties");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}*/
+		property = new Properties();
+		
+			/*try {
+				property.load(reader);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
+		try {
+			property.load(getClass().getResourceAsStream("/Config.properties"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static void MyReport(String reportName) {
 		extentReport = new ExtentReports();

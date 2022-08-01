@@ -6,12 +6,17 @@ import org.utilities.BaseClass;
 
 import io.cucumber.java.en.Given;
 
-public class Hooks extends BaseClass {
+public class Hooks extends BaseClass  {
 	@Before
 	@Given("user opens google chrome and enters mutual drug application url")
 	public void user_opens_google_chrome_and_enters_mutual_drug_application_url() {
-		launchBrowser("chrome");
-		launchUrl("https://mdmembersdev.azurewebsites.net/sign-in");
+		loadProperties();
+		Constants.browser=property.getProperty("browser");
+		Constants.url=property.getProperty("url");
+		Constants.username=property.getProperty("username");
+		Constants.password=property.getProperty("password"); 
+		launchBrowser(property.getProperty("browser"));
+		launchUrl(Constants.url);
 		maxWindow();
 		impWait();
 				
